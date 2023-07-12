@@ -101,7 +101,7 @@ def scaled_multihead_dot_product_attention(
 
     if is_causal and (not q.size(2) == 1):
         s = max(s_q, s_k)
-        causal_mask = attn_weight.new_ones(s, s, dtype=torch.float16)
+        causal_mask = attn_weight.new_ones(s, s, dtype=torch.float32)
         causal_mask = causal_mask.tril()
         causal_mask = causal_mask.to(torch.bool)
         causal_mask = ~causal_mask
@@ -312,14 +312,10 @@ def triton_flash_attn_fn(
                       h=1 if multiquery else n_heads)
 
     if multiquery:
-        # Expanding a tensor does not allocate new memory, but only creates a new
-        # view on the existing tensor where a dimension of size one is expanded
-        # to a larger size by setting the stride to 0.
-        # - pytorch docs
-        #
-        # hopefully the kernels can utilize this and we're jot just wasting BW here
-        key = key.expand(*key.shape[:2], n_heads, key.size(-1))
-        value = value.expand(*value.shape[:2], n_heads, value.size(-1))
+        # necessary to repeat instead of expand tensor because
+        # output contains NaN in edge cases such as with head dimension = 8
+        key = key.repeat(1, 1, n_heads, 1)
+        value = value.repeat(1, 1, n_heads, 1)
 
     reset_is_causal = _reset_is_causal(query.size(1), key.size(1), is_causal)
     attn_output = flash_attn_func(query, key, value, attn_bias, reset_is_causal,
