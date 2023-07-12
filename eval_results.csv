@@ -1,0 +1,3 @@
+Category,Benchmark,Subtask,Accuracy,Number few shot,Model
+commonsense_reasoning,piqa,,0.7981501817703247,0,mosaicml/mpt-7b
+language_understanding,hellaswag,,0.7610037922859192,0,mosaicml/mpt-7b

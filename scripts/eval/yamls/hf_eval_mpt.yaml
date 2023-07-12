@@ -5,14 +5,14 @@ precision: amp_fp16
 
 models:
 -
-  model_name: EleutherAI/gpt-neo-125m
+  model_name: mosaicml/mpt-7b
   model:
     name: hf_causal_lm
-    pretrained_model_name_or_path: EleutherAI/gpt-neo-125m
+    pretrained_model_name_or_path: mosaicml/mpt-7b
     init_device: cpu
     pretrained: true
   tokenizer:
-    name: EleutherAI/gpt-neo-125m
+    name: mosaicml/mpt-7b
     kwargs:
       model_max_length: ${max_seq_len}
 

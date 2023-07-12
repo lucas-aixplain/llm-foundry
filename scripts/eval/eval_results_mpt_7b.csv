@@ -1,0 +1,8 @@
+Category,Benchmark,Subtask,Accuracy,Number few shot,Model
+language_understanding,lambada_openai,,0.703473687171936,0,mosaicml/mpt-7b
+commonsense_reasoning,copa,,0.800000011920929,0,mosaicml/mpt-7b
+commonsense_reasoning,piqa,,0.8046789765357971,10,mosaicml/mpt-7b
+language_understanding,hellaswag,,0.7656841278076172,10,mosaicml/mpt-7b
+world_knowledge,arc_easy,,0.7234848737716675,10,mosaicml/mpt-7b
+world_knowledge,arc_challenge,,0.4317406117916107,10,mosaicml/mpt-7b
+reading_comprehension,boolq,,0.7550458908081055,10,mosaicml/mpt-7b

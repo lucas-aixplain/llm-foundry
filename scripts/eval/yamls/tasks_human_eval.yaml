@@ -1,0 +1,6 @@
+icl_tasks:
+-
+  label: human_eval
+  dataset_uri: eval/local_data/human_eval/human-eval-v2.jsonl  # ADD YOUR OWN DATASET URI
+  num_fewshot: [0]
+  icl_task_type: language_modeling

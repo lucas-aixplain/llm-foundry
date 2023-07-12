@@ -163,7 +163,12 @@ def main(cfg):
                     model_gauntlet_df.sort_values(
                         'average', ascending=False).to_markdown(index=False))
             print(f'Printing complete results for all models')
-            print(models_df.to_markdown(index=False))
+            result_markdown = models_df.to_markdown(index=False)
+            print(result_markdown)
+            models_df.to_csv("eval_results.csv", index=False)
+            with open("eval_results.md", "w") as f:
+                f.write(result_markdown)
+            
         except Exception as e:
             print(
                 f'Got exception: {str(e)} while evaluating {model_cfg}. Continuing to next model.',
