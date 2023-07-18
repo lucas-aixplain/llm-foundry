@@ -25,5 +25,5 @@ fsdp_config:
   sharding_strategy: FULL_SHARD
   mixed_precision: FULL
 
-icl_tasks: 'eval/yamls/tasks_zero_shot.yaml'
+icl_tasks: 'eval/yamls/tasks_zero_shot_all.yaml'
 model_gauntlet: 'eval/yamls/model_gauntlet.yaml'
