@@ -1,0 +1,50 @@
+icl_tasks:
+-
+  label: persona_chat
+  dataset_uri: eval/local_data/chatting/persona_chat.jsonl  # ADD YOUR OWN DATASET URI
+  num_fewshot: [0]
+  icl_task_type: language_modeling
+-
+  label: human_eval
+  dataset_uri: eval/local_data/human_eval/human-eval-v2.jsonl  # ADD YOUR OWN DATASET URI
+  num_fewshot: [0]
+  icl_task_type: language_modeling
+-
+  label: lambada_openai
+  dataset_uri: eval/local_data/language_understanding/lambada_openai.jsonl
+  num_fewshot: [0]
+  icl_task_type: language_modeling
+-
+  label: piqa
+  dataset_uri: eval/local_data/commonsense_reasoning/piqa.jsonl  # ADD YOUR OWN DATASET URI
+  num_fewshot: [0]
+  icl_task_type: multiple_choice
+  continuation_delimiter: "\nAnswer: " # this separates questions from answers
+-
+  label: hellaswag
+  dataset_uri: eval/local_data/language_understanding/hellaswag.jsonl # ADD YOUR OWN DATASET URI
+  num_fewshot: [0]
+  icl_task_type: multiple_choice
+-
+  label: arc_easy
+  dataset_uri: eval/local_data/world_knowledge/arc_easy.jsonl # ADD YOUR OWN DATASET URI
+  num_fewshot: [0]
+  icl_task_type: multiple_choice
+  continuation_delimiter: "\nAnswer: " # this separates questions from answers
+-
+  label: arc_challenge
+  dataset_uri: eval/local_data/world_knowledge/arc_challenge.jsonl # ADD YOUR OWN DATASET URI
+  num_fewshot: [0]
+  icl_task_type: multiple_choice
+  continuation_delimiter: "\nAnswer: " # this separates questions from answers
+-
+  label: copa
+  dataset_uri: eval/local_data/commonsense_reasoning/copa.jsonl # ADD YOUR OWN DATASET URI
+  num_fewshot: [0]
+  icl_task_type: multiple_choice
+-
+  label: boolq
+  dataset_uri: eval/local_data/reading_comprehension/boolq.jsonl # ADD YOUR OWN DATASET URI
+  num_fewshot: [0]
+  icl_task_type: multiple_choice
+  continuation_delimiter: "\nAnswer: " # this separates questions from answers
