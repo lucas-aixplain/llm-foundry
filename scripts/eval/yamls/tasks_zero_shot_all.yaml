@@ -3,12 +3,18 @@ icl_tasks:
   label: persona_chat
   dataset_uri: eval/local_data/chatting/persona_chat.jsonl  # ADD YOUR OWN DATASET URI
   num_fewshot: [0]
+  metric_names:
+  - InContextLearningLMAccuracy
   icl_task_type: language_modeling
+  continuation_delimiter: '\n' # this separates contexts from continuations
 -
   label: human_eval
   dataset_uri: eval/local_data/human_eval/human-eval-v2.jsonl  # ADD YOUR OWN DATASET URI
   num_fewshot: [0]
+  metric_names:
+  - InContextLearningLMAccuracy
   icl_task_type: language_modeling
+  continuation_delimiter: ' ' # this separates contexts from continuations
 -
   label: lambada_openai
   dataset_uri: eval/local_data/language_understanding/lambada_openai.jsonl
